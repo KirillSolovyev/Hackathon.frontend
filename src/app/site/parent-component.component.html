@@ -1,0 +1,46 @@
+<header class="header flex-center-space_between">
+	<div class="header__logo-container">
+		<a class="header__nav" [routerLink]="">
+			<img src="assets/img/logo.png" alt="Logo"/>
+		</a>
+	</div>
+	<div class="header__menu flex-center-space_between">
+		<a class="header__nav" href="#">Инициативы</a>
+		<a class="header__nav" href="#">В прогрессе</a>
+		<a class="header__nav" href="#">Завершенные</a>
+	</div>
+	<div class="header__exit-container slash-border">
+		<button class="btn exit-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="loginDrop = true">
+		    Вход
+		</button>
+		<div class="dropdown-menu dropdown-menu-right login-drop-down" [ngStyle]="{'display': loginDrop ? 'block' : ''}">
+			<label>
+				Почта
+				<input type="email" placeholder="exmaple@example.com" id="mail" #logInput/>
+			</label>
+			<label>
+				Ваш пароль
+				<input type="password" placeholder="Введите пароль" id="pass" #logInput>
+			</label>
+			<input type="submit" value="Войти" (click)="login()"/>
+			<p>Или</p>
+			<input type="submit" value="Регистрация" (click)="showSignUp()"/>
+	  	</div>
+	  	<div class="dropdown-menu dropdown-menu-right sign-up-drop-down" ngStyle]="{'display': loginSignUp ? 'block' : ''}">
+	  		<label>
+				Имя
+				<input type="text" placeholder="Введите имя" #regInput/>
+			</label>
+			<label>
+				Почта
+				<input type="email" placeholder="exmaple@example.com" #regInput/>
+			</label>
+			<label>
+				Ваш пароль
+				<input type="password" placeholder="Введите пароль" #regInput>
+			</label>
+			<input type="submit" value="Регистрация"/>
+	  	</div>
+	</div>
+</header>
+<router-outlet></router-outlet>
