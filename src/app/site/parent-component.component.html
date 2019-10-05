@@ -10,10 +10,13 @@
 		<a class="header__nav" href="#">Завершенные</a>
 	</div>
 	<div class="header__exit-container slash-border">
-		<button class="btn exit-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="loginDrop = true">
+		<button *ngIf="loggedIn()" class="btn exit-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="logoutDrop = !logoutDrop">
+		    {{getName()}}
+		</button>
+		<button *ngIf="!loggedIn()" class="btn exit-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="switchDrops()">
 		    Вход
 		</button>
-		<div class="dropdown-menu dropdown-menu-right login-drop-down" [ngStyle]="{'display': loginDrop ? 'block' : ''}">
+		<div *ngIf="!loggedIn()" class="dropdown-menu dropdown-menu-right login-drop-down" [ngStyle]="{'display': loginDrop ? 'block' : ''}">
 			<label>
 				Почта
 				<input type="email" placeholder="exmaple@example.com" id="mail" #logInput/>
@@ -26,7 +29,7 @@
 			<p>Или</p>
 			<input type="submit" value="Регистрация" (click)="showSignUp()"/>
 	  	</div>
-	  	<div class="dropdown-menu dropdown-menu-right sign-up-drop-down" ngStyle]="{'display': loginSignUp ? 'block' : ''}">
+	  	<div *ngIf="!loggedIn()" class="dropdown-menu dropdown-menu-right sign-up-drop-down" [ngStyle]="{'display': signUpDrop ? 'block' : ''}">
 	  		<label>
 				Имя
 				<input type="text" placeholder="Введите имя" #regInput/>
@@ -40,6 +43,9 @@
 				<input type="password" placeholder="Введите пароль" #regInput>
 			</label>
 			<input type="submit" value="Регистрация"/>
+	  	</div>
+	  	<div *ngIf="loggedIn()" class="dropdown-menu dropdown-menu-right sign-up-drop-down" [ngStyle]="{'display': logoutDrop ? 'block' : ''}">
+			<input type="submit" value="Выйти" (click)="logout()"/>
 	  	</div>
 	</div>
 </header>
