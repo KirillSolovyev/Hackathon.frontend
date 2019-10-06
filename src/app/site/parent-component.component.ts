@@ -14,6 +14,7 @@ export class ParentComponent{
 	signUpDrop: boolean = false;
 	logoutDrop: boolean = false;
 	@ViewChildren("logInput") logInput: QueryList<any>;
+	@ViewChildren("regInput") regInput: QueryList<any>;
 	
 	constructor(private siteService: SiteService){}
 
@@ -50,6 +51,28 @@ export class ParentComponent{
 			localStorage.setItem("username", res["username"]);
 			this.loginDrop = false;
 		}).catch(err => console.error(err));
+	}
+
+	signUp(){
+		const data = {};
+		let send = true;
+		this.regInput.forEach(inp => {
+			const el = (inp as ElementRef).nativeElement;
+			if(el.value == ""){
+				el.placeholder = "Зполните это поле";
+				send = false;
+				return false;
+			}
+			if(el.id == "name") data["username"] = el.value;
+			else if(el.id == "mail") data["email"] = el.value;
+			else if(el.id == "pass") data["password"] = el.value;
+		});
+		if(!send) return;
+		this.siteService.signUp(data).then(res => {
+			localStorage.setItem("token", res["token"]);
+			localStorage.setItem("username", res["username"]);
+			this.signUpDrop = false;
+		});
 	}
 
 	loggedIn(): boolean{

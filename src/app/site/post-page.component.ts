@@ -43,7 +43,12 @@ export class PostPageComponent{
 		this.siteService.getPosts()
 						.then(res => {
 							this.postList = res;
-							console.log(res);
+							this.postList.forEach(post => {
+								this.siteService.isLiked(post["id"]).then(res => {
+									post["is_liked"] = res;
+								});
+							});
+							console.log(this.postList);
 						})
 						.catch(err => console.error(err));
 	}

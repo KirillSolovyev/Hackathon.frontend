@@ -189,14 +189,14 @@ h5{
 	display: inline-flex;
 	align-items: stretch;
 	min-width: 180px;
-	border: 3px solid #65A5A9;
+	border: 3px solid #A73131;
 	cursor: pointer;
 	transition: 0.3s;
+	color: #A73131;
 }
 
 .like-btn__img{
 	padding: 0 5px;
-	border-right: 3px solid #65A5A9;
 }
 
 .like-btn__img img{
@@ -226,10 +226,94 @@ h5{
 }
 
 .post_liked{
-	background-color: #65A5A9;
+	background-color: #DE3030;
 	color: #fff;
 }
 
 .exit-btn{
 	
+}
+
+.content__row-desc{
+	align-items: flex-start;
+}
+
+.sponsor-logo{
+	text-align: center;
+}
+
+.sponsor-logo img{
+	width: auto !important;
+}
+
+.p_small-left{
+	text-align: left;
+}
+
+.progress-title{
+	color: #696969;
+	font-weight: 600;
+	text-align: center;
+}
+
+.goal-block{
+	width: 100%;
+	text-align: right;
+}
+
+.progress-cont{
+	margin-top: 30px;
+}
+
+.progress-cont .progress-bar{
+	background-color: #55DD33;
+}
+
+.progress-notation{
+	display: inline-block;
+	width: auto;
+}
+
+.like-btn_green{
+	background-color: #55DD33;
+	border-color: #41AD38;
+}
+
+.like-btn_green{
+	color: #154012;
+}
+
+.like-btn_green p{
+	width: auto;
+}
+
+.like-btn_green .like-btn__img{
+	padding: 0 10px;
+}
+
+.prog-cont{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.icon-cont{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 40px;
+}
+
+.like-btn_center p{
+	width: 100%;
+}
+
+.like-btn_gray{
+	background-color: #929292;
+	border-color: #4F4D4D;
+	color: #4F4D4D;
+}
+
+.sponsor-logo img{
+	max-width: 100%;
 }

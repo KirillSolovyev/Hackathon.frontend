@@ -7,17 +7,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from "@angular/router";
 import { ParentComponent } from "./site/parent-component.component";
 import { PostPageComponent } from "./site/post-page.component";
+import { InProcessPost } from "./site/in-process-post.component";
+import { FinishedPostComponent } from "./site/finished-post.component";
+import { ShareButtonsModule } from '@ngx-share/buttons';
 
 @NgModule({
   declarations: [
     AppComponent,
     ParentComponent,
-    PostPageComponent
+    PostPageComponent,
+    InProcessPost,
+    FinishedPostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ShareButtonsModule,
     RouterModule.forRoot([
     	{
     		path: "",
@@ -26,6 +32,14 @@ import { PostPageComponent } from "./site/post-page.component";
                 {
                     path: "post",
                     component: PostPageComponent,
+                },
+                {
+                	path: "in-process",
+                	component: InProcessPost
+                },
+                {
+                	path: "finished",
+                	component: FinishedPostComponent
                 }
             ]
     	}

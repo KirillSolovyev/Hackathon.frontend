@@ -26,11 +26,19 @@
 						<b>{{post.like_cnt}}</b>
 					</p>
 					<div class="content_like-info flex-hor-center">
-						<div class="like-btn border-radius" [ngClass]="{'post_liked': post.isLiked}" (click)="changeLike(post, post.is_liked)">
-							<div class="like-btn__img flex-center-space_between">
-								<img src="assets/img/like.png" alt="LIKE"/>
-							</div>
-							<p>Поддержать</p>
+						<div class="like-btn border-radius" [ngClass]="{'post_liked': post.is_liked}" (click)="changeLike(post, !post.is_liked)">
+							<ng-container *ngIf="!post.is_liked">
+								<div class="like-btn__img flex-center-space_between">
+									<img src="assets/img/like.png" alt="LIKE"/>
+								</div>
+								<p>Поддержать</p>
+							</ng-container>
+							<ng-container *ngIf="post.is_liked">
+								<div class="like-btn__img flex-center-space_between">
+									<img src="assets/img/liked-like.png" alt="LIKE"/>
+								</div>
+								<p>Вы поддержать</p>
+							</ng-container>
 						</div>
 					</div>
 				</div>

@@ -5,8 +5,8 @@
 		</a>
 	</div>
 	<div class="header__menu flex-center-space_between">
-		<a class="header__nav" href="#">Инициативы</a>
-		<a class="header__nav" href="#">В прогрессе</a>
+		<a class="header__nav" routerLink="/post">Инициативы</a>
+		<a class="header__nav" routerLink="/in-process">В прогрессе</a>
 		<a class="header__nav" href="#">Завершенные</a>
 	</div>
 	<div class="header__exit-container slash-border">
@@ -18,8 +18,8 @@
 		</button>
 		<div *ngIf="!loggedIn()" class="dropdown-menu dropdown-menu-right login-drop-down" [ngStyle]="{'display': loginDrop ? 'block' : ''}">
 			<label>
-				Почта
-				<input type="email" placeholder="exmaple@example.com" id="mail" #logInput/>
+				Ваш логин
+				<input type="text" placeholder="Введите логин" id="mail" #logInput/>
 			</label>
 			<label>
 				Ваш пароль
@@ -32,17 +32,17 @@
 	  	<div *ngIf="!loggedIn()" class="dropdown-menu dropdown-menu-right sign-up-drop-down" [ngStyle]="{'display': signUpDrop ? 'block' : ''}">
 	  		<label>
 				Имя
-				<input type="text" placeholder="Введите имя" #regInput/>
+				<input type="text" id="name" placeholder="Введите имя" #regInput/>
 			</label>
 			<label>
 				Почта
-				<input type="email" placeholder="exmaple@example.com" #regInput/>
+				<input type="email" id="mail" placeholder="exmaple@example.com" #regInput/>
 			</label>
 			<label>
 				Ваш пароль
-				<input type="password" placeholder="Введите пароль" #regInput>
+				<input type="password" id="pass" placeholder="Введите пароль" #regInput>
 			</label>
-			<input type="submit" value="Регистрация"/>
+			<input type="submit" value="Регистрация" (click)="signUp()"/>
 	  	</div>
 	  	<div *ngIf="loggedIn()" class="dropdown-menu dropdown-menu-right sign-up-drop-down" [ngStyle]="{'display': logoutDrop ? 'block' : ''}">
 			<input type="submit" value="Выйти" (click)="logout()"/>
