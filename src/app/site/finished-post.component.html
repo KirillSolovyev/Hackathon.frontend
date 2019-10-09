@@ -1,39 +1,48 @@
-<div class="content__main border-radius">
-	<ng-container *ngIf="postList">
-		<div *ngFor="let post of postList" class="content__row offer border-radius row">
-			<div class="col-sm-8 flex-center-space_between flex-stretch">
-				<div class="content__row-img-block">
-					<img src="{{post.post.image}}" />
-					<p class="p_small p_small-left">{{post.deadline}}</p>
-					<p class="p_small p_small-left">{{post.post.like_cnt}}</p>
-					<p class="p_small p_small-left">{{post.post.author}}</p>
-					<p class="p_small p_small-left"><b>{{post.company_name}}</b></p>
-					<p class="sponsor-logo">
-						<img src="{{post.company_logo}}" alt="Company Logo"/>
-					</p>
+<section class="container content">
+	<div class="row">
+		<div class="col-12 heading-cont">
+			<h2>Список инициатив</h2>
+		</div>
+	</div>
+	<div class="content__main border-radius">
+		<ng-container *ngIf="postList">
+			<div *ngFor="let post of postList" class="content__row offer border-radius row">
+				<div class="col-sm-8 flex-center-space_between flex-stretch" style="padding: 0 !important">
+					<div class="content__row-img-block" style="max-height: 400px;height: auto;">
+						<img src="{{post.post.image}}" />
+						<div class="blueBg flex-center-space_between">
+							<p class="sponsor-logo">
+								<img style="width: 40px !important; height: auto !important" src="{{post.company_logo}}" alt="Company Logo"/>
+							</p>
+							<p class="p_small p_small-left"><b>{{post.company_name}}</b></p>
+						</div>
+					</div>
+					<div class="content__row-desc flex-center-space_between">
+						<!-- <p class="p_small p_small-left">{{post.deadline}}</p>
+						<p class="p_small p_small-left">{{post.post.like_cnt}}</p>
+						<p class="p_small p_small-left">{{post.post.author}}</p> -->
+						<div>
+							<h4>{{post.post.title}}</h4>
+							<p class="p_middle">{{post.post.text}}</p>
+							<h5>Условие:</h5>
+							<p class="p_small p_small-left">{{post.requrements}}</p>
+						</div>
+						<p class="goal-block">{{post.ceil}} Репостов</p>
+					</div>
 				</div>
-				<div class="content__row-desc flex-center-space_between">
+				<div class="col-sm-4 content__like-cont prog-cont">
 					<div>
-						<h4>{{post.post.title}}</h4>
-						<p class="p_middle">{{post.post.text}}</p>
-						<h5>Условие:</h5>
-						<p class="p_small p_small-left">{{post.requrements}}</p>
-					</div>
-					<p class="goal-block">{{post.ceil}} Репостов</p>
-				</div>
-			</div>
-			<div class="col-sm-4 content__like-cont prog-cont">
-				<div>
-					<div class="icon-cont">
-						<img src="assets/img/success.png" alt="Icon"/>
-					</div>
-					<div class="content_like-info flex-hor-center">
-						<div class="like-btn like-btn_green border-radius like-btn_center">
-							<p>Просмотреть отчет</p>
+						<div class="icon-cont">
+							<img src="assets/img/success.png" alt="Icon"/>
+						</div>
+						<div [routerLink]="['../results', post.id]" class="content_like-info flex-hor-center">
+							<div class="like-btn like-btn_green border-radius like-btn_center">
+								<p>Просмотреть отчет</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</ng-container>
-</div>
+		</ng-container>
+	</div>
+</section>

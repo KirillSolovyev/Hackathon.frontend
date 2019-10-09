@@ -24,6 +24,7 @@ export class PostPageComponent{
 
 	likePost(post: object){
 		this.siteService.likePost(post["id"]).then(res => {
+			console.log(res);
 			if(res == 200){
 				post["is_liked"] = true;
 				post["like_cnt"]++;

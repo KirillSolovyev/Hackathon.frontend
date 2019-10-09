@@ -22,11 +22,6 @@
 	font-style: normal;
 }
 
-body{
-	min-height: 100vh;
-	font-family: "Montserrat-Regular";
-}
-
 p{
 	margin-bottom: 0;
 	line-height: 1.3;
@@ -71,30 +66,16 @@ h5{
 
 .header{
 	width: 100%;
-	box-shadow: 0px 7px 14px rgba(0, 0, 0, 0.35);
+	box-shadow: 0px 18px 28px rgba(0, 0, 0, 0.08);
 	padding: 0 60px;
-	background-color: #D7D7D7;
-	border: 2px solid #fff;
+	background-color: #E3E7F1;
+	position: relative;
 }
 
 .flex-center-space_between{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-}
-
-.slash-border{
-	position: relative;
-}
-
-.slash-border:after{
-	content: "";
-	position: absolute;
-	border: 1px solid #fff;
-	width: 0;
-	top: -13px;
-	height: calc(100% * 1.415);
-	transform: rotate(45deg);
 }
 
 .header__logo-container:after{
@@ -108,7 +89,16 @@ h5{
 .header__nav{
 	padding: 20px 10px;
 	display: block;
-	color: #000 !important;
+	color: #494CA2 !important;
+	font-size: 17px;
+	opacity: 0.5;
+	text-decoration: none !important;
+	transition: 0.3s;
+}
+
+.header__nav_active{
+	font-size: 19px;
+	opacity: 1;
 }
 
 .header__menu{
@@ -126,54 +116,103 @@ h5{
 
 .content__main{
 	padding: 50px;
-	background-color: #fff;
-	box-shadow: 0px 0px 21px rgba(0, 0, 0, 0.56);
 }
 
 .content__row{
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
 	margin-bottom: 25px;
+	background-color: #C6CBEF;
 }
 
 .content__row-img-block{
-	width: 20%;
-	padding-top: 15px;
-	padding-bottom: 15px;
+	width: 40%;
+	height: 270px;
+	overflow: hidden;
+	position: relative;
+}
+
+.gray-block{	
+	padding: 20px 0;
+	width: 100%;
+}
+
+.gray-block p{
+	color: #2E2E2E;
+	opacity: 0.5;
+}
+
+.content__row-img-block{
+	overflow: hidden;
 }
 
 .content__row-img-block img{
-	width: 100%;
-	margin-bottom: 10px;
+	height: 100%;
 }
 
 .p_small{
 	font-size: 12px;
-	width: 100%;
-	text-align: center;
 }
 
 .p_middle{
-	font-size: 15px;
+	font-size: 17px;
+	color: #4F3A65;
 }
 
 .content__row-desc{
-	padding-top: 15px;
-	padding-bottom: 15px;
-	padding-right: 15px;
+	padding:20px;
 	width: calc(80% - 15px);
-	border-right: 2px solid #C4C4C4;
+	border-right: 2px solid #4F3A6578;
+	flex-direction: column;
+	display: flex;
+}
+
+.like-info__supported{
+	color: #4F3A65;
+}
+
+h3{
+	color: #4F3A65;
 }
 
 .flex-stretch{
 	align-items: stretch;
 }
 
+.bigP{
+	font-size: 17px;
+	font-family: "Montserrat-Bold";
+}
 
 .content__like-cont{
 	display: flex;
 	flex-direction: column;
-	padding: 15px 15px 15px 0;
+	padding: 20px;
+	padding-top: 50px;
 }	
+
+.no-pad{
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.blueBg{
+	background-color: #494CA2;
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	padding: 5px 0;
+	justify-content: center;
+}
+
+.blueBg img{
+	width: 40px;
+	margin-right: 10px;
+}
+
+.blueBg p{
+	color: #fff;
+	font-size: 12px;
+}
 
 .like-info__supported{
 	margin-bottom: 10px;
@@ -182,32 +221,33 @@ h5{
 .offer_date{
 	color: #696969;
 	text-align: right;
-	margin-bottom: 12px;
 }
 
 .like-btn{
 	display: inline-flex;
 	align-items: stretch;
 	min-width: 180px;
-	border: 3px solid #A73131;
 	cursor: pointer;
 	transition: 0.3s;
-	color: #A73131;
+	color: #fff;
+	padding: 12px;
+	background-color: #574F7D;
+	margin-top: 20px;
 }
 
 .like-btn__img{
-	padding: 0 5px;
 }
 
 .like-btn__img img{
-	width: 30px;
+	width: 27px;
 }
 
 .like-btn p{
 	line-height: 1;
 	width: 100%;
-	text-align: center;
-	padding: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .flex-hor-center{
@@ -231,7 +271,19 @@ h5{
 }
 
 .exit-btn{
-	
+	outline: none !important;
+	background-color: #8186D5;
+	border-radius: 0;
+	color: #DFF0EA;
+}
+
+.exit-btn:after{
+	display: none;
+}
+
+.dropdown-menu{
+	width: 270px;
+	padding: 20px;
 }
 
 .content__row-desc{
@@ -262,7 +314,7 @@ h5{
 }
 
 .progress-cont{
-	margin-top: 30px;
+	margin-top: 15px;
 }
 
 .progress-cont .progress-bar{
@@ -270,8 +322,7 @@ h5{
 }
 
 .progress-notation{
-	display: inline-block;
-	width: auto;
+	padding: 5px 0;
 }
 
 .like-btn_green{
@@ -316,4 +367,18 @@ h5{
 
 .sponsor-logo img{
 	max-width: 100%;
+}
+
+.progress{
+	border-radius: 0px;
+	background-color: #8186D5;
+	height: 20px;
+}
+
+.progress-bar{
+	background-color: #574F7D;
+}
+
+:host ::ng-deep .sb-wrapper{
+	font-size: 11px !important;
 }

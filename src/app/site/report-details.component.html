@@ -1,0 +1,28 @@
+<section class="container content">
+	<div class="row">
+		<div class="col-12 heading-cont">
+			<h2>Завершенные инициатив</h2>
+		</div>
+	</div>
+	<div class="content__main border-radius">
+		<ng-container *ngIf="post">
+			<div class="content__row offer border-radius row">
+				<div class="col-sm-12 flex-center-space_between flex-stretch no-pad" style="padding: 0 !important;">
+					<div class="content__row-img-block" style="height: auto">
+						<img src="assets/img/img.png" />
+					</div>
+					<div class="content__row-desc">
+						<div class="gray-block flex-center-space_between">
+							<p class="p_small">{{post.author}}</p>
+							<p class="p_small offer_date">{{post.date | date:'hh:mm | dd.MM.yyyy'}}</p>
+						</div>
+						<div>
+							<h3>{{post.title}}</h3>
+							<p class="p_middle">{{post.text}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</ng-container>
+	</div>
+</section>

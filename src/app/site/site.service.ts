@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class SiteService{
 
-	private apiUrl = "http://10.10.113.168:8000/api/";
+	private apiUrl = "http://192.168.43.46:8000/api/";
 	private getPostsUrl = this.apiUrl + "posts/";
 	private loginUrl = this.apiUrl + "login/";
 	private likePostUrl = this.apiUrl + "like/";
@@ -14,6 +14,7 @@ export class SiteService{
 	private getPostInProgressUrl = this.apiUrl + "post_in_process";
 	private repostPostUrl = this.apiUrl + "repost/";
 	private getFinishedUrl = this.apiUrl + "get_finished/";
+	private getReportUrl = this.apiUrl + "get_report/";
 
 	constructor(private http: HttpClient){}
 
@@ -65,6 +66,10 @@ export class SiteService{
 
 	getFinished(): Promise<any>{
 		return this.http.get(this.getFinishedUrl).toPromise();
+	}
+
+	getReport(id): Promise<any>{
+		return this.http.post(this.getReportUrl, {post_id: id}).toPromise();
 	}
 
 }

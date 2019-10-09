@@ -47,6 +47,8 @@ export class ParentComponent{
 		});
 		if(!send) return;
 		this.siteService.login(data).then(res => {
+			console.log(data);
+			console.log(res);
 			localStorage.setItem("token", res["token"]);
 			localStorage.setItem("username", res["username"]);
 			this.loginDrop = false;

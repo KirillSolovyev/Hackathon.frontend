@@ -10,6 +10,7 @@ import { PostPageComponent } from "./site/post-page.component";
 import { InProcessPost } from "./site/in-process-post.component";
 import { FinishedPostComponent } from "./site/finished-post.component";
 import { ShareButtonsModule } from '@ngx-share/buttons';
+import { ReportDetailsComponent } from "./site/report-details.component";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ShareButtonsModule } from '@ngx-share/buttons';
     ParentComponent,
     PostPageComponent,
     InProcessPost,
-    FinishedPostComponent
+    FinishedPostComponent,
+    ReportDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,7 @@ import { ShareButtonsModule } from '@ngx-share/buttons';
     		component: ParentComponent,
     		children: [
                 {
-                    path: "post",
+                    path: "",
                     component: PostPageComponent,
                 },
                 {
@@ -40,6 +42,10 @@ import { ShareButtonsModule } from '@ngx-share/buttons';
                 {
                 	path: "finished",
                 	component: FinishedPostComponent
+                },
+                {
+                	path: "results/:id",
+                	component: ReportDetailsComponent
                 }
             ]
     	}

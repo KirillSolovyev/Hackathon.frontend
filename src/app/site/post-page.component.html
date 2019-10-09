@@ -7,26 +7,28 @@
 	<div class="content__main border-radius">
 		<ng-container *ngIf="postList">
 			<div *ngFor="let post of postList" class="content__row offer border-radius row">
-				<div class="col-sm-8 flex-center-space_between flex-stretch">
+				<div class="col-sm-8 flex-center-space_between flex-stretch no-pad" style="padding: 0 !important;">
 					<div class="content__row-img-block">
 						<img src="{{post.image}}" />
-						<p class="p_small"><b>Автор:</b> {{post.author}}</p>
 					</div>
-					<div class="content__row-desc flex-center-space_between">
+					<div class="content__row-desc">
+						<div class="gray-block flex-center-space_between">
+							<p class="p_small">{{post.author}}</p>
+							<p class="p_small offer_date">{{post.date | date:'hh:mm | dd.MM.yyyy'}}</p>
+						</div>
 						<div>
-							<h5>{{post.title}}</h5>
+							<h3>{{post.title}}</h3>
 							<p class="p_middle">{{post.text}}</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-sm-4 content__like-cont">
-					<p class="p_small offer_date">{{post.date | date:'hh:mm dd.MM.yyyy'}}</p>
-					<p class="p_small like-info__supported">
-						Уже поддержали:
-						<b>{{post.like_cnt}}</b>
+					<p class="like-info__supported">
+						Уже поддержали:<br />
+						<span class="bigP p_middle">{{post.like_cnt}}</span>
 					</p>
-					<div class="content_like-info flex-hor-center">
-						<div class="like-btn border-radius" [ngClass]="{'post_liked': post.is_liked}" (click)="changeLike(post, !post.is_liked)">
+					<div class="content_like-info">
+						<div class="like-btn" [ngClass]="{'post_liked': post.is_liked}" (click)="changeLike(post, !post.is_liked)">
 							<ng-container *ngIf="!post.is_liked">
 								<div class="like-btn__img flex-center-space_between">
 									<img src="assets/img/like.png" alt="LIKE"/>
@@ -37,7 +39,7 @@
 								<div class="like-btn__img flex-center-space_between">
 									<img src="assets/img/liked-like.png" alt="LIKE"/>
 								</div>
-								<p>Вы поддержать</p>
+								<p>Вы поддержали</p>
 							</ng-container>
 						</div>
 					</div>

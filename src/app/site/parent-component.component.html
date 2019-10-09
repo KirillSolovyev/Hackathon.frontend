@@ -5,9 +5,9 @@
 		</a>
 	</div>
 	<div class="header__menu flex-center-space_between">
-		<a class="header__nav" routerLink="/post">Инициативы</a>
+		<a class="header__nav" routerLink="">Инициативы</a>
 		<a class="header__nav" routerLink="/in-process">В прогрессе</a>
-		<a class="header__nav" href="#">Завершенные</a>
+		<a class="header__nav" routerLink="/finished">Завершенные</a>
 	</div>
 	<div class="header__exit-container slash-border">
 		<button *ngIf="loggedIn()" class="btn exit-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="logoutDrop = !logoutDrop">
